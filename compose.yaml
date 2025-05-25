@@ -1,0 +1,30 @@
+services:
+  menumaster:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: menumaster-app
+    depends_on:
+      - menumaster-mysql
+    environment:
+      SPRING_DATASOURCE_URL: ${DB_URL}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASS}
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  menumaster-mysql:
+    image: 'mysql:8'
+    container_name: menumaster-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${DB_PASS}
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - mysql-dt:/var/lib/mysql
+
+volumes:
+  mysql-dt:
