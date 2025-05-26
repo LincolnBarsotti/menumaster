@@ -24,7 +24,7 @@ public class OpenApiConfig {
                 .license(new License().name("Apache 2.0").url("http://springdoc.org"));
 
         info.addExtension("x-contacts", List.of(
-                Map.of("name", "Lincoln", "email", "lincoln@example.com", "url", "https://linkedin.com/in/lincoln"),
+                Map.of("name", "Lincoln", "email", "lincolnbarsotti.dev@gmail.com", "url", "https://www.linkedin.com/in/lincoln-barsotti/"),
                 Map.of("name", "Rene", "email", "rene@example.com", "url", "https://linkedin.com/in/rene")
         ));
 
